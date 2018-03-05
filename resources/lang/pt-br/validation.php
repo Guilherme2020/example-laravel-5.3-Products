@@ -105,6 +105,9 @@ return [
         'referência' => [
             'min' => 'Uma Referência deve ter no minimo três caracteres',
             'required' => 'Um produto não pode  ser cadastrado sem referência'
+        ],
+        'preco'=> [
+            'required' => "Somente numeros"
         ]
     ],
 

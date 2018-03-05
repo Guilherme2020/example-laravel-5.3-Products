@@ -29,4 +29,8 @@
         <br/>
         {{Form::submit('Cadastrar!',['class'=>'btn btn-default'])}}
     {{Form::close()}}
+    {{--<a href="javascript:history.go(-1)">Voltar</a>--}}
+
+    <a href="{{url('produtos')}}">Voltar</a>
+
 @endsection
