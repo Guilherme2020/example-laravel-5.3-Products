@@ -12,12 +12,17 @@ class ProdutosController extends Controller
 {
         //
     public function index(){
-        $produtos = Produto::all();
-        return view('produto.index', array('produtos' => $produtos));
+        $produtos = Produto::paginate(4);
+        return view('produto.index', array('produtos' => $produtos,'busca'=>null));
     }
     public function show($id){
         $produto = Produto::find($id);
         return view('produto.show',array('produto' => $produto));
+    }
+    public function buscar(Request $request){
+        $produtos = Produto::where('titulo','LIKE','%'.$request->input('busca').'%')
+        ->orwhere('descricao','LIKE','%'.$request->input('busca').'%')->paginate(4);
+        return view('produto.index',array('produtos'=> $produtos, 'busca'=> $request-> input('busca')));
     }
 
     public function create(){
